@@ -1,8 +1,5 @@
 import js.objects.jso
-import mui.icons.material.Home
-import mui.icons.material.Numbers
-import mui.icons.material.Person
-import mui.icons.material.Textsms
+import mui.icons.material.*
 import pages.*
 import react.create
 import react.router.dom.createBrowserRouter
@@ -36,6 +33,11 @@ val appRouter = createBrowserRouter(arrayOf(
                     path = "/complex"
                     text = "Complex Data"
                     Icon = Textsms
+                },
+                jso {
+                    path = "/echoParameters"
+                    text = "Echo Parameters"
+                    Icon = SurroundSound
                 }
             )
         }
@@ -59,6 +61,10 @@ val appRouter = createBrowserRouter(arrayOf(
             jso {
                 path = "complex"
                 element = ComplexDataPage.create()
+            },
+            jso {
+                path = "echoParameters"
+                element = EchoParamPage.create()
             }
         )
     }

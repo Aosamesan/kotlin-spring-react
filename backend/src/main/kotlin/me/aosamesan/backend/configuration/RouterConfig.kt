@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.web.reactive.function.server.RouterFunction
 import org.springframework.web.reactive.function.server.ServerResponse
 import org.springframework.web.reactive.function.server.router
+import parameters.parseQueryMap
 
 @Configuration
 class RouterConfig {
@@ -31,6 +32,11 @@ class RouterConfig {
                     title = "title",
                     simple = ComplexData.SimpleData("Message")
                 ))
+            }
+            GET("/echoParameter") {
+                ServerResponse.ok().bodyValue(
+                    parseQueryMap(it.queryParams().toSingleValueMap())
+                )
             }
         }
     }
